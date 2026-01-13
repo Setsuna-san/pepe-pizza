@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pepe Pizza</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="stylesPhone.css" />
+    <link rel="icon" type="image/png" href="images/Icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="header">
+      <img src="Images/logo.png" alt="" class="logoImage" />
+      <img src="Images/title.png" alt="" class="titleImage" />
+    </nav>
+<hr style="border: 1px solid black" />
+
+    <div class="bande-event">
+      <marquee direction="5px"> événement à venir : aucun </marquee> 
+    </div>
+
+    <br />
+
+    <div class="btn-circle">
+      <a href="index.html" class="btn-duo-left">Menu</a>
+      <a href="lieux.html" class="btn-duo-center">Lieux</a>
+      <a href="apropos.html" class="btn-duo-right">INFOS</a>
+    </div>
+
+    <h1 class="titre">Les lieux</h1>
+    <br />
+
+    <div class="pop-up-appel">
+      <a href="tel:+33615287535">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2em;
+          "
+        >
+          <img
+            src="Images/icons/phone.svg"
+            style="filter: invert(); height: 1em"
+            alt=""
+          />
+          APPELER
+        </div>
+      </a>
+    </div>
+
+    <table class="table-lieux">
+      <tr>
+        <td style="text-align: right ; width: 40%;">Lundi</td>
+        <td style=" width: 40%;">Loubens Lauragais</td>
+        <td>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Loubens+Lauragais"
+            target="_blank"
+            >Maps</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right">Mercredi</td>
+        <td>Saint Julia</td>
+        <td>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Saint+julia+occitanie"
+            target="_blank"
+            >Maps</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right">Jeudi</td>
+        <td>Le Faget</td>
+        <td>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Le+Faget"
+            target="_blank"
+            >Maps</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right">Vendredi</td>
+        <td>Maureville</td>
+        <td>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Maureville"
+            target="_blank"
+            >Maps</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right">Week-end</td>
+        <td>Evenements</td>
+        <td>
+          <a href="https://www.facebook.com/PepePizza31250/"> Voir facebook </a>
+        </td>
+      </tr>
+    </table>
+
+    <br><br>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v19.0"
+    ></script>
+
+    <div
+      class="fb-page"
+      data-href="https://www.facebook.com/PepePizza31250/"
+      data-tabs="timeline"
+      data-height="300"
+      data-small-header="true"
+      data-adapt-container-width="true"
+      data-hide-cover="true"
+    ></div>
+    
+
+    <br /><br />
+    <footer>
+      <p>© 2026 Pepe Pizza. Tous droits réservés.</p>
+    </footer>
+    <br><br><br><br>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+@media (max-width: 600px) {
+  .menuAffiche {
+    width: 90vw;
+  }
+
+
+  
+
+  .btn-duo-img {
+    height: 2.5rem;
+    margin: 0;
+  }
+
+  .pop-up-appel {
+    display: block;
+    width: 80%;
+  }
+
+  .table-lieux {
+    width: 100%;
+    
+  }
+
+  .table-lieux td {
+    padding: 1em;
+  }
+
+   .table-lieux tr {
+    border: 3px solid black;
+  }
+
+  .fb-page {
+    width: 90%;
+    margin: 5%;
+  }
+}
