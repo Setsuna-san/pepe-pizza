@@ -5,14 +5,15 @@
 }
 
 html {
+  scroll-behavior: smooth;
   padding: 0;
 
   max-width: 100vw;
-  background: #407c51;
-  background: linear-gradient(
-    90deg,
-    rgba(64, 124, 81, 1) 0%,
-    rgba(138, 219, 158, 1) 53%,
+  background: #8adb9e;
+  background: radial-gradient(
+    circle,
+    rgba(138, 219, 158, 1) 0%,
+    rgba(64, 124, 81, 1) 100%,
     rgba(64, 124, 81, 1) 100%
   );
   scrollbar-width: none;
@@ -59,6 +60,7 @@ body {
   text-align: center;
   display: flex;
   justify-content: space-around;
+  font-family: "customPolice2", cursive;
 }
 
 .btn-circle a {
@@ -66,7 +68,8 @@ body {
   aspect-ratio: 1/1;
   border-radius: 50%;
   border: #ffc830 5px solid;
-  background-color: rgb(2, 2, 82);
+  background-color: rgb(41, 107, 41);
+
   text-decoration: none;
   text-transform: uppercase;
   font-size: 20px;
@@ -89,6 +92,8 @@ body {
   text-align: center;
   display: flex;
   justify-content: space-around;
+  font-family: "customPolice2", cursive;
+
 }
 
 .btn-event {
@@ -109,7 +114,7 @@ body {
   border: #ffc830 5px solid;
   border-radius: 15px;
   color: #ffc830;
-  background-color: rgb(2, 2, 82);
+  background-color: rgb(41, 107, 41);
   align-content: center;
   -webkit-text-stroke: 1px #000;
   font-weight: 900;
@@ -173,10 +178,10 @@ body {
 }
 
 .pizza-description {
-  color: black;
+  color: rgb(0, 0, 0);
   -webkit-text-stroke: 0.2px #ffc830;
   letter-spacing: -1.8px;
-  font-weight: 600;
+  font-weight: 800;
   text-align: left;
   font-size: calc(15px + 1vw);
 }
@@ -207,6 +212,7 @@ body {
   font-size: calc(17px + 1vw);
   font-weight: 900;
 }
+
 
 .traditionnelles,
 .fromageres,
@@ -262,9 +268,9 @@ body {
 }
 
 .info-prod {
-  width: 96%;
+  width: 80%;
   color: black;
-  margin: 5%;
+  margin: 10%;
   font-size: 20px;
   text-align: left;
 }
@@ -319,7 +325,6 @@ body {
   font-style: normal;
 }
 
-
 .table-lieux {
   font-family: "customPolice2";
   color: #ffa530;
@@ -331,3 +336,69 @@ body {
   -webkit-text-stroke: 0.1px #000;
 }
 
+.events-panel {
+  margin: 5%;
+  padding: 2.5%;
+  width: 85%;
+  min-height: 300px;
+  border-radius: 15px;
+  font-family: "customPolice2", cursive;
+}
+
+.events-card {
+  width: calc(90%-6px);
+  border: #000 solid 3px;
+  border-radius: 15px;
+  padding: 5%;
+  padding-bottom: 0;
+  color: white;
+  -webkit-text-stroke: 0.5px #000;
+
+  box-shadow: hsla(0, 0%, 0%, 0.8) 5px 5px;
+}
+
+.events-orange {
+  background: #f9a63a;
+  background: linear-gradient(
+    180deg,
+    rgba(249, 166, 58, 1) 52%,
+    rgba(150, 90, 11, 1) 100%
+  );
+}
+
+.events-blue {
+  background: #3da2e0;
+background: linear-gradient(180deg, rgba(61, 162, 224, 1) 52%, rgba(1, 79, 112, 1) 100%);
+
+}
+
+.events-pink {
+  background: #c73694;
+background: linear-gradient(180deg, rgba(199, 54, 148, 1) 56%, rgba(82, 1, 112, 1) 100%);
+}
+
+.events-date {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.events-timer {
+  display: flex;
+  align-items: center; 
+  justify-content: end;
+
+  gap: 5px;
+  color: white;
+  -webkit-text-stroke: 0px white;
+  font-weight: 200;
+   margin: 1em;
+}
+
+.events-title {
+  font-weight: 600;
+}
+
+.events-link {
+  font-weight: 400;
+}

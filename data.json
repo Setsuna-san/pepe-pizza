@@ -1,0 +1,193 @@
+{
+  "categories": [
+    {
+      "name": "Les traditionnelles",
+      "id": "traditionnelles",
+      "class": "traditionnelles",
+      "pizzas": [
+        {
+          "name": "Marguerite",
+          "image": "Images/pizza/traditionnelles/marguerite.png",
+          "smallPrice": "5.5€",
+          "bigPrice": "6.5€",
+          "description": "Tomate, Olives, Râpés"
+        },
+        {
+          "name": "Reine",
+          "image": "Images/pizza/traditionnelles/reine.png",
+          "smallPrice": "9.5€",
+          "bigPrice": "10.5€",
+          "description": "Tomate, Jambon, Champignons, Olives, Râpés"
+        },
+        {
+          "name": "Royale",
+          "image": "Images/pizza/traditionnelles/royale.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Tomate, Jambon, Champignons, Olives, Râpés + oeuf"
+        },
+        {
+          "name": "Chicken",
+          "image": "Images/pizza/traditionnelles/chicken.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Tomate, Blancs de poulet, Champignons, Ail, Olives, Râpés"
+        },
+        {
+          "name": "Végétarienne",
+          "image": "Images/pizza/traditionnelles/vegetarienne.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "13€",
+          "description": "Tomate, Champignons, Poivrons, Maïs, Artichauts, Olives, Oignons, Râpés"
+        }
+      ]
+    },
+    {
+      "name": "Les fromageres",
+      "id": "fromageres",
+      "class": "fromageres",
+      "pizzas": [
+        {
+          "name": "Biquette",
+          "image": "Images/pizza/fromageres/biquette.png",
+          "smallPrice": "9.5€",
+          "bigPrice": "10.5€",
+          "description": "Tomate, Chèvre, Miel, Olives, Râpés"
+        },
+        {
+          "name": "3 Fromages",
+          "image": "Images/pizza/fromageres/3fromages.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Tomate, Chèvre, Pyrénées, Râpés, Olives"
+        },
+        {
+          "name": "4 Fromages",
+          "image": "Images/pizza/fromageres/4fromages.png",
+          "smallPrice": "11.5€",
+          "bigPrice": "13€",
+          "description": "Tomate, Chèvre, Pyrénées, Bleu, Râpés, Olives"
+        },
+        {
+          "name": "Savoyarde",
+          "image": "Images/pizza/fromageres/savoyarde.png",
+          "smallPrice": "11.5€",
+          "bigPrice": "14€",
+          "description": "Tomate, Patates, Lardons, Oignons, Roblochon"
+        }
+      ]
+    },
+    {
+      "name": "Les spécialités",
+      "id": "specialites",
+      "class": "specialites",
+      "pizzas": [
+        {
+          "name": "Diable",
+          "image": "Images/pizza/specialites/diable.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Crème fraîche, Moutarde, Blancs de poulet, Râpés"
+        },
+        {
+          "name": "Flammekueche",
+          "image": "Images/pizza/specialites/flammekueche.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Crème fraîche, Lardons fumés, Oignons, Râpés"
+        },
+        {
+          "name": "Taz",
+          "image": "Images/pizza/specialites/taz.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "13€",
+          "description": "Crème fraîche épicée, Poulet, Épices Tandoori, Râpés"
+        },
+        {
+          "name": "Même",
+          "image": "Images/pizza/specialites/meme.png",
+          "smallPrice": "11.5€",
+          "bigPrice": "14€",
+          "description": "Tomate, Magret, Bleu, Noix, Râpés"
+        }
+      ]
+    },
+    {
+      "name": "Les marines",
+      "id": "marines",
+      "class": "marines",
+      "pizzas": [
+        {
+          "name": "Terre & Mer",
+          "image": "Images/pizza/marines/terremer.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Tomate, Thon ou naturel, Oignons, Olives, Râpés"
+        },
+        {
+          "name": "Anchois",
+          "image": "Images/pizza/marines/anchois.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "13€",
+          "description": "Tomate, Filets d'anchois, Câpres, Râpés"
+        },
+        {
+          "name": "Nordique",
+          "image": "Images/pizza/marines/nordique.png",
+          "smallPrice": "11.5€",
+          "bigPrice": "13.5€",
+          "description": "Crème fraîche, Saumon fumé, Câpres, Estragon, Râpés"
+        }
+      ]
+    },
+    {
+      "name": "Les vacancières",
+      "id": "vacancieres",
+      "class": "vacancieres",
+      "pizzas": [
+        {
+          "name": "Andalouse",
+          "image": "Images/pizza/vacancieres/andalouse.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Tomate, Poivrons, Chorizo, Ail, Olives, Râpés"
+        },
+        {
+          "name": "Hawaï",
+          "image": "Images/pizza/vacancieres/hawai.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "12€",
+          "description": "Tomate, Jambon, Ananas, Râpés"
+        },
+        {
+          "name": "Hawaï Chicken",
+          "image": "Images/pizza/vacancieres/hawaichicken.png",
+          "smallPrice": "11.5€",
+          "bigPrice": "12.5€",
+          "description": "Tomate, Poulet, Ananas"
+        },
+        {
+          "name": "Kebab",
+          "image": "Images/pizza/vacancieres/kebab.png",
+          "smallPrice": "11.5€",
+          "bigPrice": "13€",
+          "description": "Crème fraîche épicée, Viande de kebab, Oignons, Épices, Râpés"
+        },
+        {
+          "name": "British",
+          "image": "Images/pizza/vacancieres/british.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "13€",
+          "description": "Tomate, Bacon, Cheddar + oeuf, Olives"
+        },
+        {
+          "name": "Orientale",
+          "image": "Images/pizza/vacancieres/orientale.png",
+          "smallPrice": "10.5€",
+          "bigPrice": "13€",
+          "description": "Tomate, Merguez, Poivrons, Ail, Épices, Olives, Râpés"
+        }
+      ]
+    }
+  ]
+}

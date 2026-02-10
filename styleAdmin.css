@@ -1,0 +1,45 @@
+.table-admin {
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  font-size: calc(10px + 0.5vw);
+  text-align: center;
+
+}
+
+h1 {
+  text-align: center;
+  padding: 1em;
+}
+
+.table-admin th {
+  font-weight: 900;
+  background-color: black;
+  color: rgb(230, 230, 230);
+  text-transform: uppercase;
+}
+
+.table-admin td {
+  border: 1px solid rgba(0, 0, 0, 0.299);
+  font-size: calc(8px + 0.1vw);
+  padding: 0.3em;
+}
+
+.table-admin .tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+.table-admin .tbody tr:nth-child(even) {
+  background-color: #dbdbdb;
+}
+
+.table-pizza td input {
+  width: 70%;
+}
+
+.table-header {
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  background-color: rgb(147, 147, 147);
+}

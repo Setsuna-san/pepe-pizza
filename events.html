@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pepe Pizza</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="stylesPhone.css" />
+    <link rel="icon" type="image/png" href="images/Icon.png" />
+  </head>
+  <body>
+    <nav class="header">
+      <img src="Images/logo.png" alt="" class="logoImage" />
+      <img src="Images/title.png" alt="" class="titleImage" />
+    </nav>
+    <hr style="border: 1px solid black" />
+
+    <div class="bande-event">
+      <marquee direction="5px"> événement à venir : aucun </marquee>
+    </div>
+
+    <br />
+
+    <div class="btn-circle">
+      <a href="index.html" class="btn-duo-left">Menu</a>
+      <a href="lieux.html" class="btn-duo-center">Lieux</a>
+      <a href="apropos.html" class="btn-duo-right">infos</a>
+    </div>
+
+    <div class="btn-large">
+      <a href="events.html" class="btn-duo-right">événements</a>
+    </div>
+    <br />
+
+    <h1 class="titre">événements</h1>
+    <br />
+
+    <div class="pop-up-appel">
+      <a href="tel:+33615287535">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2em;
+          "
+        >
+          <img
+            src="Images/icons/phone.svg"
+            style="filter: invert(); height: 1em"
+            alt=""
+          />
+          APPELER
+        </div>
+      </a>
+    </div>
+    <div id="events-container"></div>
+
+    <br /><br />
+    <footer>
+      <p>© 2026 Pepe Pizza. Tous droits réservés.</p>
+    </footer>
+    <script>
+      fetch('events.json')
+        .then(response => response.json())
+        .then(data => {
+          // Update marquee
+          const firstEvent = data.events[0];
+          if (firstEvent) {
+            const eventDate = new Date(firstEvent.date);
+            const formattedDate = eventDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+            document.querySelector('.bande-event marquee').textContent = `événement à venir : ${formattedDate} | |  ${firstEvent.title}`;
+          }
+          const container = document.getElementById('events-container');
+          const panel = document.createElement('div');
+          panel.className = 'events-panel';
+          const today = new Date();
+          const todayUTC = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
+          data.events.forEach(event => {
+            const eventDate = new Date(event.date);
+            const formattedDate = eventDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+            const diffTime = eventDate - todayUTC;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1;
+            let timerText;
+            if (diffDays < 0) {
+              timerText = "Passé";
+            } else if (diffDays === 0) {
+              timerText = "Aujourd'hui";
+            } else if (diffDays === 1) {
+              timerText = "Demain";
+            } else {
+              timerText = `${diffDays} jours`;
+            }
+            const card = document.createElement('div');
+            card.className = `events-card ${event.class}`;
+            card.innerHTML = `
+              <div class="events-date">${formattedDate}</div>
+              <div class="events-title">${event.title}</div>
+              <div class="events-timer">
+                <img src="Images/icons/timer.svg" style="width: 1.5em" alt="" />
+                ${timerText}
+              </div>
+              <div class="events-link"></div>
+            `;
+            panel.appendChild(card);
+            const br = document.createElement('br');
+            panel.appendChild(br);
+          });
+          container.appendChild(panel);
+        })
+        .catch(error => console.error('Error loading events:', error));
+    </script>
+    <br /><br /><br /><br /><br />
+  </body>
+</html>

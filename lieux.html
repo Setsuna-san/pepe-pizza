@@ -32,6 +32,12 @@
       <a href="lieux.html" class="btn-duo-center">Lieux</a>
       <a href="apropos.html" class="btn-duo-right">INFOS</a>
     </div>
+    
+
+    <div class="btn-large">
+      <a href="events.html" class="btn-duo-right">événements</a>
+    </div>
+    <br />
 
     <h1 class="titre">Les lieux</h1>
     <br />
@@ -134,6 +140,21 @@
     <footer>
       <p>© 2026 Pepe Pizza. Tous droits réservés.</p>
     </footer>
+    <script>
+      fetch('events.json')
+        .then(response => response.json())
+        .then(data => {
+          const firstEvent = data.events[0];
+          if (firstEvent) {
+            const eventDate = new Date(firstEvent.date);
+            const formattedDate = eventDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+            document.querySelector('.bande-event marquee').textContent = `événement à venir : ${formattedDate} | |  ${firstEvent.title}`;
+          } else {
+            document.querySelector('.bande-event marquee').textContent = data.afficher;
+          }
+        })
+        .catch(error => console.error('Error loading events for marquee:', error));
+    </script>
     <br><br><br><br>
   </body>
 </html>
