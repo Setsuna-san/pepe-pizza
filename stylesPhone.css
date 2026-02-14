@@ -70,4 +70,14 @@
   .btn-head {
     margin: 2em;
   }
+
+  .table-lieux {
+    font-size: 35px;
+    width: 70%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .table-lieux td {
+    gap: 100px;
+  }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -22,14 +22,46 @@
     <hr style="border: 1px solid black" />
 
     <div class="bande-event">
-      <marquee direction="5px"> événement à venir : aucun </marquee>
+      <marquee direction="5px">événement à venir : aucun</marquee>
     </div>
+    <script>
+      fetch("events.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const firstEvent = data.events[0];
+          if (firstEvent) {
+            const eventDate = new Date(firstEvent.date);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            if (eventDate >= today) {
+              const formattedDate = eventDate.toLocaleDateString("fr-FR", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              });
+              document.querySelector(".bande-event marquee").textContent =
+                `événement à venir : ${formattedDate} | |  ${firstEvent.title}`;
+            } else {
+              document.querySelector(".bande-event marquee").textContent =
+                data.afficher;
+            }
+          } else {
+            document.querySelector(".bande-event marquee").textContent =
+              data.afficher;
+          }
+        })
+        .catch((error) =>
+          console.error("Error loading events for marquee:", error),
+        );
+    </script>
 
     <br />
 
     <div class="phone-btn">
       <div class="btn-circle">
-        <a href="#traditionnelles" class="btn-duo-left">Menu</a>
+        <a href="index.html#traditionnelles" class="btn-duo-left">Menu</a>
         <a href="lieux.html" class="btn-duo-center">Lieux</a>
         <a href="apropos.html" class="btn-duo-right">Infos</a>
       </div>
@@ -41,7 +73,7 @@
 
     <div class="other-btn">
       <div class="btn-head">
-        <a href="#traditionnelles" class="btn-duo-left">Menu</a>
+        <a href="index.html#traditionnelles" class="btn-duo-left">Menu</a>
         <a href="lieux.html" class="btn-duo-center">Lieux</a>
         <a href="apropos.html" class="btn-duo-right">Infos</a>
         <a href="events.html" class="btn-duo-right">événements</a>
