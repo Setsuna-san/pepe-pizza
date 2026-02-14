@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - pepe pizza</title>
     <link rel="stylesheet" href="styleAdmin.css" />
-
   </head>
   <body>
-
     <h1>Panneau administrateur</h1>
 
     <table class="table-admin table-pizza">
@@ -23,104 +21,326 @@
         <td style="width: 12%">Prix Grande</td>
         <td>Actions</td>
       </tr>
-      <tbody class="tbody">
-        <tr>
-          <td>Marguerite</td>
-          <td>traditionnelles</td>
-          <td>Tomate, Olives, Râpés</td>
-          <td><input type="number" step="0.5" value="5.5" /></td>
-          <td><input type="number" step="0.5" value="6.5" /></td>
-          <td>
-            <a href="#">Modifier</a>
-            <br />
-            <a href="#">Supprimer</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Marguerite</td>
-          <td>traditionnelles</td>
-          <td>Tomate, Olives, Râpés</td>
-          <td><input type="number" step="0.5" value="5.5" /></td>
-          <td><input type="number" step="0.5" value="6.5" /></td>
-          <td>
-            <a href="#">Modifier</a>
-            <br />
-            <a href="#">Supprimer</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Marguerite</td>
-          <td>traditionnelles</td>
-          <td>Tomate, Olives, Râpés</td>
-          <td><input type="number" step="0.5" value="5.5" /></td>
-          <td><input type="number" step="0.5" value="6.5" /></td>
-          <td>
-            <a href="#">Modifier</a>
-            <br />
-            <a href="#">Supprimer</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Marguerite</td>
-          <td>traditionnelles</td>
-          <td>Tomate, Olives, Râpés</td>
-          <td><input type="number" step="0.5" value="5.5" /></td>
-          <td><input type="number" step="0.5" value="6.5" /></td>
-          <td>
-            <a href="#">Modifier</a>
-            <br />
-            <a href="#">Supprimer</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Marguerite</td>
-          <td>traditionnelles</td>
-          <td>Tomate, Olives, Râpés</td>
-          <td><input type="number" step="0.5" value="5.5" /></td>
-          <td><input type="number" step="0.5" value="6.5" /></td>
-          <td>
-            <a href="#">Modifier</a>
-            <br />
-            <a href="#">Supprimer</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Marguerite</td>
-          <td>traditionnelles</td>
-          <td>Tomate, Olives, Râpés</td>
-          <td><input type="number" step="0.5" value="5.5" /></td>
-          <td><input type="number" step="0.5" value="6.5" /></td>
-          <td>
-            <a href="#">Modifier</a>
-            <br />
-            <a href="#">Supprimer</a>
-          </td>
-        </tr>
-      </tbody>
+      <script>
+        fetch("data.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const container = document.getElementById("pizzas-container");
+            let index = 1;
+
+            data.categories.forEach((category) => {
+              category.pizzas.forEach((pizza) => {
+                const pizzaDiv = document.createElement("tr");
+                pizzaDiv.id = `pizza-${index}`;
+                pizza.smallPrice = parseFloat(
+                  pizza.smallPrice.replace("€", ""),
+                );
+                pizza.bigPrice = parseFloat(pizza.bigPrice.replace("€", ""));
+                pizzaDiv.innerHTML = `
+                          <td><input type="text" id="pizza-name-${index}" value="${pizza.name}" /></td>
+                          <td><input type="text" id="pizza-category-${index}" value="${category.name}" /></td>
+                          <td><input type="text" id="pizza-description-${index}" value="${pizza.description}" /></td>
+                          <td><input type="number" step="0.5" id="pizza-small-price-${index}" value="${pizza.smallPrice}" /></td>
+                          <td><input type="number" step="0.5" id="pizza-big-price-${index}" value="${pizza.bigPrice}" /></td>
+                          <td>
+                            <a class="delete-btn" onclick="deletePizza(${index})">Supprimer</a>
+                          </td>
+              `;
+                container.appendChild(pizzaDiv);
+                index++;
+              });
+            });
+          })
+          .catch((error) => console.error("Error loading pizzas:", error));
+
+        deletePizza = (index) => {
+          const pizzaRow = document.getElementById(`pizza-${index}`);
+          if (
+            confirm(
+              "Valider la suppresion ? \n \n PS :  ne s'applique qu'apres la mise à jour de data.json ",
+            )
+          ) {
+            if (pizzaRow) {
+              pizzaRow.remove();
+            }
+          }
+        };
+
+        ajouterPizza = () => {
+          const container = document.getElementById("pizzas-container");
+          const index = container.children.length + 1;
+          const pizzaDiv = document.createElement("tr");
+          pizzaDiv.id = `pizza-${index}`;
+          pizzaDiv.innerHTML = `
+                      <td><input type="text" id="pizza-name-${index}" value="" placeholder="Nom de la pizza" /></td>
+                      <td><input type="text" id="pizza-category-${index}" value="" placeholder="Catégorie" /></td>
+                      <td><input type="text" id="pizza-description-${index}" value="" placeholder="Description" /></td>
+                      <td><input type="number" step="0.5" id="pizza-small-price-${index}" value="" placeholder="Prix petite" /></td>
+                      <td><input type="number" step="0.5" id="pizza-big-price-${index}" value="" placeholder="Prix grande" /></td>
+                      <td>
+                        <a class="delete-btn" onclick="deletePizza(${index})">Supprimer</a>
+                      </td>
+          `;
+          container.appendChild(pizzaDiv);
+        };
+      </script>
+      <tbody class="tbody" id="pizzas-container"></tbody>
+      <tr>
+        <td colspan="100%" style="text-align: center">
+          <button onclick="ajouterPizza()">Ajouter une pizza</button>
+        </td>
+      </tr>
     </table>
+
+    <script>
+      createDataJson = () => {
+        const pizzas = [];
+        const container = document.getElementById("pizzas-container");
+        for (let i = 0; i < container.children.length; i++) {
+          const pizzaRow = container.children[i];
+          const name = document.getElementById(`pizza-name-${i + 1}`).value;
+          const category = document.getElementById(
+            `pizza-category-${i + 1}`,
+          ).value;
+          const description = document.getElementById(
+            `pizza-description-${i + 1}`,
+          ).value;
+          const smallPrice =
+            document.getElementById(`pizza-small-price-${i + 1}`).value + "€";
+          const bigPrice =
+            document.getElementById(`pizza-big-price-${i + 1}`).value + "€";
+          pizzas.push({
+            name,
+            category,
+            description,
+            smallPrice,
+            bigPrice,
+          });
+        }
+
+        const categoryMap = new Map();
+        pizzas.forEach((pizza) => {
+          if (!categoryMap.has(pizza.category)) {
+            categoryMap.set(pizza.category, {
+              id: pizza.category,
+              name:
+                pizza.category.charAt(0).toUpperCase() +
+                pizza.category.slice(1),
+              class: "categorie",
+              pizzas: [],
+            });
+          }
+          categoryMap.get(pizza.category).pizzas.push({
+            name: pizza.name,
+            image: pizza.image,
+            smallPrice: pizza.smallPrice,
+            bigPrice: pizza.bigPrice,
+            description: pizza.description,
+          });
+        });
+
+        const data = {
+          categories: Array.from(categoryMap.values()),
+        };
+
+        return data;
+      };
+
+      CopyPizzasToClipboard = () => {
+        const data = createDataJson();
+        const jsonData = JSON.stringify(data, null, 2);
+        navigator.clipboard.writeText(jsonData).then(
+          () => {
+            alert("Nouvelle données copiées dans le presse-papier !");
+          },
+          (err) => {
+            console.error(
+              "Erreur lors de la copie dans le presse-papier: ",
+              err,
+            );
+          },
+        );
+      };
+
+      downloadDataJson = () => {
+        const data = createDataJson();
+        const jsonData = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "data.json";
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+    </script>
+    <!-- créer le json data.json avec le nouveau formulaire -->
+    <input
+      type="button"
+      value="Créer le fichier"
+      onclick="downloadDataJson()"
+    />
+    <!-- ne creer pas le fichier mais ajouter dans le presse papier le json data.json avec le nouveau formulaire -->
+    <input
+      type="button"
+      value="Copier le fichier"
+      onclick="CopyPizzasToClipboard()"
+    />
+
+    <br /><br />
+    <br />
+    <br />
 
     <table class="table-admin">
       <tr>
         <th colspan="100%" style="text-align: center">Liste des evenements</th>
       </tr>
       <tr class="table-header">
-        <td>Libellé</td>
+        <td>Ttire</td>
         <td>Date</td>
-        <td>lien</td>
+        <td>Lien</td>
+        <td>Couleur</td>
         <td>Actions</td>
       </tr>
-      <tbody>
-        <tr>
-          <td>Fêtes de Maureville</td>
-          <td><input style="width: 90%" type="datetime-local" /></td>
-          <td>https://maureville.fr</td>
-          <td>
-            <a href="#">Modifier</a>
-            <br />
-            <a href="#">Supprimer</a>
-          </td>
-        </tr>
-      </tbody>
+      <script>
+        fetch("events.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const container = document.getElementById("events-container");
+            let index = 1;
+
+            data.events.forEach((event) => {
+              const eventDiv = document.createElement("tr");
+              eventDiv.id = `event-${index}`;
+              eventDiv.innerHTML = `
+                      <td><input type="text" id="event-title-${index}" value="${event.title}" placeholder="Nom de l'événement" /></td>
+                        <td><input type="datetime-local" id="event-date-${index}" value="${new Date(event.date).toISOString().slice(0, 16)}" placeholder="Date" /></td>
+                      <td><input type="text" id="event-link-${index}" value="${event.link}" placeholder="Lien" /></td>
+                      <td>
+                        <select id="event-class-${index}"> 
+                          <option value="events-orange" ${event.color === "events-orange" ? "selected" : ""}>Orange</option>   
+                          <option value="events-blue" ${event.color === "events-blue" ? "selected" : ""}>Bleu</option>   
+                          <option value="events-pink" ${event.color === "events-pink" ? "selected" : ""}>Rose</option>   
+                        </select>  
+                      </td>
+                      <td>
+                        <a class="delete-btn" onclick="deleteEvent(${index})">Supprimer</a>
+                      </td>
+          `;
+              container.appendChild(eventDiv);
+              index++;
+            });
+          })
+          .catch((error) => console.error("Error loading events:", error));
+
+        deleteEvent = (index) => {
+          const eventRow = document.getElementById(`event-${index}`);
+          if (
+            confirm(
+              "Valider la suppresion ? \n \n PS : ne s'applique qu'apres la mise à jour de events.json ",
+            )
+          ) {
+            if (eventRow) {
+              eventRow.remove();
+            }
+          }
+        };
+
+        ajouterEvent = () => {
+          const container = document.getElementById("events-container");
+          const index = container.children.length + 1;
+          const eventDiv = document.createElement("tr");
+          eventDiv.id = `event-${index}`;
+          eventDiv.innerHTML = `
+                      <td><input type="text" id="event-title-${index}" value="" placeholder="Nom de l'événement" /></td>
+                      <td><input type="datetime-local" id="event-date-${index}" value="" placeholder="Date" /></td>
+                      <td><input type="text" id="event-link-${index}" value="" placeholder="Lien" /></td>
+                      <td>
+                        <select id="event-class-${index}"> 
+                          <option value="events-orange" default> Orange </option>   
+                          <option value="events-blue"> Bleu </option>   
+                          <option value="events-pink"> Rose </option>   
+                        </select>  
+                      </td>
+                      <td>
+                        <a class="delete-btn" onclick="deleteEvent(${index})">Supprimer</a>
+                      </td>
+          `;
+          container.appendChild(eventDiv);
+        };
+      </script>
+      <tbody id="events-container"></tbody>
+      <tr>
+        <td colspan="100%" style="text-align: center">
+          <button onclick="ajouterEvent()">Ajouter un Event</button>
+        </td>
+      </tr>
     </table>
+
+    <script>
+      createEventJson = () => {
+        const events = [];
+        const container = document.getElementById("events-container");
+        for (let i = 0; i < container.children.length; i++) {
+          const eventRow = container.children[i];
+          const title = document.getElementById(`event-title-${i + 1}`).value;
+          const date = document.getElementById(`event-date-${i + 1}`).value;
+          const link = document.getElementById(`event-link-${i + 1}`).value;
+          const color = document.getElementById(`event-class-${i + 1}`).value;
+          events.push({
+            title,
+            date,
+            link,
+            color,
+          });
+        }
+
+        const data = {
+          events: Array.from(events.values()),
+        };
+
+        return data;
+      };
+
+      CopyEventsToClipboard = () => {
+        const data = createEventJson();
+        const jsonData = JSON.stringify(data, null, 2);
+        navigator.clipboard.writeText(jsonData).then(
+          () => {
+            alert("Nouvelle données copiées dans le presse-papier !");
+          },
+          (err) => {
+            console.error(
+              "Erreur lors de la copie dans le presse-papier: ",
+              err,
+            );
+          },
+        );
+      };
+
+      downloadEventsJson = () => {
+        const data = createEventJson();
+        const jsonData = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "events.json";
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+    </script>
+    <!-- créer le json data.json avec le nouveau formulaire -->
+    <input
+      type="button"
+      value="Créer le fichier"
+      onclick="downloadEventsJson()"
+    />
+    <!-- ne creer pas le fichier mais ajouter dans le presse papier le json data.json avec le nouveau formulaire -->
+    <input
+      type="button"
+      value="Copier le fichier"
+      onclick="CopyEventsToClipboard()"
+    />
   </body>
 </html>

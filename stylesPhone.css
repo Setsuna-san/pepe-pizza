@@ -3,9 +3,6 @@
     width: 90vw;
   }
 
-
-  
-
   .btn-duo-img {
     height: 2.5rem;
     margin: 0;
@@ -18,19 +15,59 @@
 
   .table-lieux {
     width: 100%;
-    
   }
 
   .table-lieux td {
     padding: 1em;
   }
 
-   .table-lieux tr {
+  .table-lieux tr {
     border: 3px solid black;
   }
 
   .fb-page {
     width: 90%;
     margin: 5%;
+  }
+
+  .phone-btn {
+    display: block;
+  }
+
+  .others-btn {
+    display: none;
+  }
+}
+
+@media (min-width: 1500px) {
+  .btn-head a {
+    padding: 1em;
+    border-radius: 15px;
+    margin: 2em;
+    font-family: "customPolice2", cursive;
+    color: #ffc830;
+
+    transition: 0.4s;
+    align-content: center;
+    -webkit-text-stroke: 1px #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 26px;
+    border: 2px solid goldenrod;
+    background-color: rgb(41, 107, 41);
+  }
+
+  .btn-head a:hover {
+    transform: scale(120%);
+    background-color: rgb(111, 152, 111);
+  }
+
+  .categorie {
+    font-size: 35px;
+  }
+
+  .btn-head {
+    margin: 2em;
   }
 }

@@ -218,7 +218,8 @@ body {
 .fromageres,
 .specialites,
 .vacancieres,
-.marines {
+.marines,
+.categorie  {
   margin-top: 50px;
   background-color: #ffc830;
 
@@ -236,7 +237,8 @@ body {
 .fromageres div,
 .specialites div,
 .vacancieres div,
-.marines div {
+.marines div,
+.categorie div {
   background-image: url(Images/logo.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -402,3 +404,8 @@ background: linear-gradient(180deg, rgba(199, 54, 148, 1) 56%, rgba(82, 1, 112, 
 .events-link {
   font-weight: 400;
 }
+
+
+ .phone-btn {
+    display: none;
+  }

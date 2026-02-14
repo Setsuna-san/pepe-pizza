@@ -1,19 +1,16 @@
 {
   "events": [
     {
-      "date": 1768581191000,
-      "title": "Fêtes de village - Maureville",
-      "class": "events-orange"
+      "title": "Fêtes de village - Maureville 1",
+      "date": "2026-01-16T13:33",
+      "link": "",
+      "color": "events-orange"
     },
     {
-      "date": 1768667591000,
-      "title": "Fêtes de village - Maureville",
-      "class": "events-blue"
-    },
-    {
-      "date": 1776778805000,
-      "title": "Fêtes de village - Maureville",
-      "class": "events-pink"
+      "title": "Fêtes de village - Maureville 3",
+      "date": "2026-01-17T13:33",
+      "link": "",
+      "color": "events-blue"
     }
   ]
 }
