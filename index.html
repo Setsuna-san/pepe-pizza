@@ -121,27 +121,25 @@
           });
         })
         .catch((error) => console.error("Error loading pizzas:", error));
-      fetch('events.json')
-      .then(response => response.json())
-      .then(data => {
-        const firstEvent = data.events[0];
-        if (firstEvent) {
-        const eventDate = new Date(firstEvent.date);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        
-        if (eventDate >= today) {
-          const formattedDate = eventDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-          document.querySelector('.bande-event marquee').textContent = `événement à venir : ${formattedDate} | |  ${firstEvent.title}`;
-        } else {
-          document.querySelector('.bande-event marquee').textContent = data.afficher;
-        }
-        } else {
-        document.querySelector('.bande-event marquee').textContent = data.afficher;
-        }
-      })
-      .catch(error => console.error('Error loading events for marquee:', error));
-      
+      fetch("events.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const firstEvent = data.events[0];
+          if (firstEvent) {
+            const eventDate = new Date(firstEvent.date);
+            const formattedDate = eventDate.toLocaleDateString("fr-FR", {
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
+            document.querySelector(".bande-event marquee").textContent =
+              `événement à venir : ${formattedDate} | |  ${firstEvent.title}`;
+          }
+        })
+        .catch((error) =>
+          console.error("Error loading events for marquee:", error),
+        );
       // script lightbox
       const lightbox = document.getElementById("lightbox");
       const lbImg = document.getElementById("lightbox-img");
